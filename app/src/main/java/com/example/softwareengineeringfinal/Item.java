@@ -4,15 +4,12 @@ public class Item {
 
     private String itemName;
 
-    public Item(String test) {
-        itemName = test;
+    public Item(String itemName) {
+        this.itemName = itemName;
     }
 
-    public String getItemName() {
+    public String getItem() {
         return itemName;
-    }
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
     }
 }
 

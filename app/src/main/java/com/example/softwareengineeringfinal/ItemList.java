@@ -1,23 +1,19 @@
 package com.example.softwareengineeringfinal;
 
+import java.util.LinkedList;
 import java.util.List;
 
-
+//Used for testing Item object
 public class ItemList {
-// Still need name of class that we will be extending
-    private List<Item> llist;
-    public void main (String args[]){
-        Item item = new Item("test");
-        llist.add(item);
-    }
-    public int getItemCount() {
-        return llist.size();
-    }
-    public interface OnItemClickListener{
-        void onItemClick(int position);
-    }
-    public ItemList(List<Item> llist){
-        this.llist = llist;
-    }
+    public static void main(String[] args){
+        List<Item> items = new LinkedList<Item>();
+        Item item1 = new Item("test1");
+        Item item2 = new Item("test2");
+        items.add(item1);
+        items.add(item2);
+        for (int i = 0; i < items.size(); i++) {
+            System.out.println(items.get(i).getItem();
 
+        }
+    }
 }
