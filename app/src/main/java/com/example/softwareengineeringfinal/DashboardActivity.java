@@ -37,8 +37,10 @@ public class DashboardActivity extends AppCompatActivity {
         MainActivity.redirectActivity(this, MainActivity.class);
     }
     public void ClickList(View view){
+
+
         //logout
-        MainActivity.redirectActivity(this, ListActivity.class);
+        MainActivity.redirectActivity(this, NewListActivity.class);
     }
     public void ClickShop(View view){
         //logout
