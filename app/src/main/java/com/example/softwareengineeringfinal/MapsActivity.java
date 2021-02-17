@@ -3,10 +3,21 @@ package com.example.softwareengineeringfinal;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+<<<<<<< HEAD
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
 
 import android.app.Notification;
+=======
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentActivity;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Notification;
+import android.content.DialogInterface;
+>>>>>>> main
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -29,7 +40,12 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.Arrays;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+<<<<<<< HEAD
     Button button4;
+=======
+    DrawerLayout drawerLayout;
+    Button buttonuno;
+>>>>>>> main
     private GoogleMap mMap;
 
 
@@ -42,6 +58,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+<<<<<<< HEAD
         button4 = (Button) findViewById(R.id.button4);
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +72,73 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void openNewActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+=======
+        drawerLayout = findViewById(R.id.drawer_layout);
+        buttonuno = findViewById(R.id.buttonuno);
+        buttonuno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openNewActivity();
+                
+            }
+        });
+
+
+
+    }
+
+    private void openNewActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+
+    public void ClickMenu(View view){
+        //open drawer
+        MainActivity.openDrawer(drawerLayout);
+    }
+
+    public void ClickLogo(View view)
+    {
+        //closeDrawer
+        MainActivity.closeDrawer(drawerLayout);
+    }
+
+    public void ClickHome(View view){
+        //redirect activity to home
+        MainActivity.redirectActivity(this, MainActivity.class);
+    }
+    public void ClickList(View view){
+        //logout
+        MainActivity.redirectActivity(this, ListActivity.class);
+    }
+    public void ClickShop(View view){
+        //logout
+        MainActivity.redirectActivity(this, ShopActivity.class);
+    }
+
+
+    public void ClickDashboard(View view){
+        //redirect to dashboard activity
+       MainActivity.redirectActivity(this,DashboardActivity.class );
+    }
+
+    public void ClickAboutUs(View view){
+        //go to our about us page
+       MainActivity.redirectActivity(this,AboutUsActivity.class );
+    }
+    public void ClickLogout(View view){
+        //logout
+        MainActivity.logout(this);
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //close the drawer
+        MainActivity.closeDrawer(drawerLayout);
+>>>>>>> main
     }
 
 
