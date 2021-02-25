@@ -12,15 +12,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-<<<<<<< Updated upstream
 import java.util.ArrayList;
 import java.util.LinkedList;
-=======
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
->>>>>>> Stashed changes
 
 public class NewListActivity extends AppCompatActivity {
 
@@ -29,17 +26,13 @@ public class NewListActivity extends AppCompatActivity {
     EditText name;
     public static final String EXTRA_LIST = "array_list";
     ArrayAdapter arrayAdapter;
-<<<<<<< Updated upstream
     ArrayList<String> array_list; /* changed to arraylist to be used with intent */
-=======
     List<String> array_list = new ArrayList<String>(); /* changed to arraylist to be used with intent */
->>>>>>> Stashed changes
     private ListView listView;
 
     @Override
     protected void onCreate(Bundle readInstanceState){
         super.onCreate(readInstanceState);
-<<<<<<< Updated upstream
         setContentView(R.layout.activity_main);
         array_list = new ArrayList<>();
         findViewById(R.id.refresh).setOnClickListener(new View.OnClickListener() {
@@ -49,14 +42,12 @@ public class NewListActivity extends AppCompatActivity {
                 listView.invalidateViews();
                 listView.refreshDrawableState();
             }
-=======
         setContentView(R.layout.activity_new_list);
         array_list = new ArrayList<String>();
         findViewById(R.id.refresh).setOnClickListener(v -> {
             arrayAdapter.notifyDataSetChanged();
             listView.invalidateViews();
             listView.refreshDrawableState();
->>>>>>> Stashed changes
         });
 
         findViewById(R.id.save).setOnClickListener(new View.OnClickListener(){
@@ -74,20 +65,17 @@ public class NewListActivity extends AppCompatActivity {
         });//end save click listener
 
 //Click Listener for new Maps Activity -- needs to be added still
-<<<<<<< Updated upstream
         findViewById(R.id.find).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(NewListActivity.this, NewMapsActivity.class);
                 intent.putExtra(EXTRA_LIST, array_list); /* put extra before sending to NewMapsActivity */
                 startActivity(intent);
-=======
         findViewById(R.id.find).setOnClickListener(v -> {
             name = findViewById(R.id.name);
             if (!name.getText().toString().isEmpty()) {
                 String[] str = name.getText().toString().split("\n");
                 array_list = Arrays.asList(str);
->>>>>>> Stashed changes
             }
 
             Intent intent = new Intent(NewListActivity.this, NewMapsActivity.class);

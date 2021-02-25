@@ -54,24 +54,14 @@ public class NewMapsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_maps);
        /* Added Intent to bring over list from NewListActivity */
         Intent intent =  getIntent();
-<<<<<<< Updated upstream
-        ArrayList<String> arrayList = intent.getStringArrayListExtra(NewListActivity.EXTRA_LIST);
-=======
         ArrayList<String> arrayList = (ArrayList<String>)intent.getSerializableExtra(NewListActivity.EXTRA_LIST);
->>>>>>> Stashed changes
+
         spType = findViewById(R.id.sp_type);
         btFind = findViewById(R.id.bt_find);
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.google_map);
         
 
-<<<<<<< Updated upstream
-        /* String[] placeTypeList = {"atm", "bank", "hospital", "movies", "restaurant"};
-
-        String[] placeNameList = {"ATM", "Bank", "Hospital", "movies", "Restaurant"}; */
-
-=======
->>>>>>> Stashed changes
         spType.setAdapter(new ArrayAdapter<>(NewMapsActivity.this, android.R.layout.simple_spinner_dropdown_item, arrayList));
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
