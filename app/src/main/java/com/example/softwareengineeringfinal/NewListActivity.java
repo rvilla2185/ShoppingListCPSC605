@@ -13,11 +13,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class NewListActivity extends AppCompatActivity {
 
@@ -27,7 +24,6 @@ public class NewListActivity extends AppCompatActivity {
     public static final String EXTRA_LIST = "array_list";
     ArrayAdapter arrayAdapter;
     ArrayList<String> array_list; /* changed to arraylist to be used with intent */
-    List<String> array_list = new ArrayList<String>(); /* changed to arraylist to be used with intent */
     private ListView listView;
 
     @Override
