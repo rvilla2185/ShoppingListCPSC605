@@ -15,6 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.List;
 
 public class NewListActivity extends AppCompatActivity {
 
@@ -23,13 +24,13 @@ public class NewListActivity extends AppCompatActivity {
     EditText name;
     public static final String EXTRA_LIST = "array_list";
     ArrayAdapter arrayAdapter;
-    ArrayList<String> array_list; /* changed to arraylist to be used with intent */
+    List<String> array_list; /* changed to arraylist to be used with intent */
     private ListView listView;
 
     @Override
     protected void onCreate(Bundle readInstanceState){
         super.onCreate(readInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_new_list);
         array_list = new ArrayList<>();
         findViewById(R.id.refresh).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,12 +39,6 @@ public class NewListActivity extends AppCompatActivity {
                 listView.invalidateViews();
                 listView.refreshDrawableState();
             }
-        setContentView(R.layout.activity_new_list);
-        array_list = new ArrayList<String>();
-        findViewById(R.id.refresh).setOnClickListener(v -> {
-            arrayAdapter.notifyDataSetChanged();
-            listView.invalidateViews();
-            listView.refreshDrawableState();
         });
 
         findViewById(R.id.save).setOnClickListener(new View.OnClickListener(){
@@ -61,12 +56,6 @@ public class NewListActivity extends AppCompatActivity {
         });//end save click listener
 
 //Click Listener for new Maps Activity -- needs to be added still
-        findViewById(R.id.find).setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(NewListActivity.this, NewMapsActivity.class);
-                intent.putExtra(EXTRA_LIST, array_list); /* put extra before sending to NewMapsActivity */
-                startActivity(intent);
         findViewById(R.id.find).setOnClickListener(v -> {
             name = findViewById(R.id.name);
             if (!name.getText().toString().isEmpty()) {
